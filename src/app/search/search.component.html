@@ -1,0 +1,31 @@
+<div class="container-lg">
+
+  <div class="content" role="main">
+    <h2>
+
+      <svg height="24" class="search-icon" viewBox="0 0 24 24" version="1.1" width="24" aria-hidden="true">
+        <path fill-rule="evenodd"
+          d="M14.53 15.59a8.25 8.25 0 111.06-1.06l5.69 5.69a.75.75 0 11-1.06 1.06l-5.69-5.69zM2.5 9.25a6.75 6.75 0 1111.74 4.547.746.746 0 00-.443.442A6.75 6.75 0 012.5 9.25z">
+        </path>
+      </svg>
+
+      Search more than <strong>55k</strong> Users
+    </h2>
+
+    <form id="search_form" class="search_repos my-3" action="" accept-charset="UTF-8" method="get">
+      <div class="d-flex search-form-fluid flex-column flex-sm-row">
+        <div class="flex-auto position-relative">
+          <input aria-label="Search GitHub" autocapitalize="off" autocomplete="off" autofocus=""
+            class="form-control input-block" data-hotkey="s" name="q" placeholder="Search GitHub" spellcheck="false"
+            type="text">
+          <input type="hidden" name="ref" value="simplesearch">
+        </div>
+        <button class="btn ml-sm-2 mt-2 mt-sm-0" type="submit">Search</button>
+      </div>
+    </form>
+  </div>
+
+</div>
+
+
+<router-outlet></router-outlet>
