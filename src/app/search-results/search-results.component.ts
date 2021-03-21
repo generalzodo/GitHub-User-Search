@@ -15,7 +15,7 @@ export class SearchResultsComponent implements OnInit {
   startCount: any = 1
   endCount: any = 10
   pageInfo: any;
-
+  loaded: boolean = false
   constructor(private api: ApiService, private route: ActivatedRoute) { }
 
 
@@ -85,7 +85,7 @@ export class SearchResultsComponent implements OnInit {
       .subscribe((result: any) => {
         this.results = result.data['search'];
         this.pageInfo = result.data['search'].pageInfo;
-
+        this.loaded = true;
       });
   }
   previousPage() {
