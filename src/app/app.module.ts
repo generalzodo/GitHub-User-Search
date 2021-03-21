@@ -18,7 +18,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 const uri = environment.serverUrl + "graphql";
 const auth = setContext((operation, context) => {
-  const token = '83324c66420897fda016b7a6524920ae43caafe6';
+  const token = atob('YzZkZDExMWY0NGYxMDkzZTNhZGMyOTZkZjExY2Y4ZmI1MWVjYmQzNA==');
 
   if (token === null) {
     return {};

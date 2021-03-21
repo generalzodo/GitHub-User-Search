@@ -68,6 +68,7 @@ export class SearchResultsComponent implements OnInit {
               isGitHubStar
               isDeveloperProgramMember
               avatarUrl
+              twitterUsername
               url
               followers{
                 totalCount

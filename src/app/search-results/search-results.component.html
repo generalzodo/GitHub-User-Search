@@ -9,8 +9,10 @@
         <img class="avatar" src="{{user.node.avatarUrl}}" alt="">
         <div class="result-body w-75">
 
-          <p class="d-flex align-items-center"><strong>{{user.node.name}}</strong> &nbsp;
-            <img *ngIf="user.node.isGitHubStar" height="12px" class="" src="assets/icon/star.svg" alt="Github Star">
+          <p class="d-flex align-items-center"><strong>{{user.node.name}}</strong> &nbsp; <small
+              *ngIf="user.node.twitterUsername">
+              @{{user.node.twitterUsername}}</small> <img *ngIf="user.node.isGitHubStar" height="12px" class=""
+              src="assets/icon/star.svg" alt="Github Star">
             <span *ngIf="user.node.isDeveloperProgramMember" class="label-pro">PRO</span></p>
           <p>{{user.node.bio}}</p>
           <p> <small>{{user.node.company}} &nbsp;{{user.node.location}}</small> </p>
