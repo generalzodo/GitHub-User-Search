@@ -1,5 +1,5 @@
 {
-  "name": "js-test",
+  "name": "Github User Search",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -26,6 +26,8 @@
     "graphql": "^15.5.0",
     "jquery": "^3.6.0",
     "ngx-bootstrap": "^6.2.0",
+    "ngx-pagination": "^5.0.0",
+    "ngx-skeleton-loader": "^2.9.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"

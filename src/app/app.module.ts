@@ -9,9 +9,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { APOLLO_OPTIONS } from 'apollo-angular';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { InMemoryCache, ApolloLink } from '@apollo/client/core';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+
 const uri = environment.serverUrl + "graphql";
 const auth = setContext((operation, context) => {
   const token = '83324c66420897fda016b7a6524920ae43caafe6';
@@ -30,13 +34,17 @@ const auth = setContext((operation, context) => {
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent
+    SearchComponent,
+    SearchResultsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-
+    FormsModule,
+    ReactiveFormsModule,
+    NgxPaginationModule,
+    NgxSkeletonLoaderModule
   ],
   providers: [
     {

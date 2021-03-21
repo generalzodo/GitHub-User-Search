@@ -1,0 +1,50 @@
+<div class="container-lg">
+
+  <div class="content" role="main">
+    <h2>{{results?.userCount | number}} users</h2>
+    <div>
+      <div
+        *ngFor="let user of results?.edges | paginate: { itemsPerPage: 20, currentPage: page,  totalItems: results?.userCount }"
+        class="result py-3 row align-content-center ">
+        <img class="avatar" src="{{user.node.avatarUrl}}" alt="">
+        <div class="result-body w-75">
+
+          <p class="d-flex align-items-center"><strong>{{user.node.name}}</strong> &nbsp;
+            <img *ngIf="user.node.isGitHubStar" height="12px" class="aaal" src="assets/icon/star.svg" alt="Github Star">
+            <span *ngIf="user.node.isDeveloperProgramMember" class="label-pro">PRO</span></p>
+          <p>{{user.node.bio}}</p>
+          <p> <small>{{user.node.company}} &nbsp;{{user.node.location}}</small> </p>
+          <p> <small> {{user.node.followers?.totalCount}} Followers · {{user.node.following?.totalCount}} Following
+            </small></p>
+        </div>
+
+        <div class="result-actions py-3 ">
+          <p>
+
+            <a title="View {{user.node.name}}" href="{{user.node.url}}" class="btn  btn-outline-light btn-sm  "
+              type="submit">View
+              on
+              Github</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="pagination py-3">
+      <p class="text-center   w-100">
+        <small>
+          {{startCount}} - {{endCount}} of {{results?.userCount}} Users
+        </small>
+        <button [disabled]="!pageInfo?.hasPreviousPage" (click)="previousPage()"
+          class="btn  btn-sm ml-sm-2 mt-2 mt-sm-0 mx-2" type="submit">Previous</button>
+
+
+        <button [disabled]="!pageInfo?.hasNextPage" (click)="nextPage()" class="btn btn-sm ml-sm-2 mt-2 mt-sm-0"
+          type="submit">Next</button>
+
+      </p>
+    </div>
+  </div>
+
+</div>

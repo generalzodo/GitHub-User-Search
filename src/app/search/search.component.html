@@ -1,6 +1,9 @@
 <div class="container-lg">
 
-  <div class="content" role="main">
+  <div class="content align-items-center" role="main">
+    <p class="text-center">
+      <img height="70px" src="assets/img/logo.png" alt="">
+    </p>
     <h2>
 
       <svg height="24" class="search-icon" viewBox="0 0 24 24" version="1.1" width="24" aria-hidden="true">
@@ -9,16 +12,16 @@
         </path>
       </svg>
 
-      Search more than <strong>55k</strong> Users
+      Search more than <strong>68M</strong> Users
     </h2>
 
-    <form id="search_form" class="search_repos my-3" action="" accept-charset="UTF-8" method="get">
+    <form id="search_form" class="search_repos my-3 mx-auto " [formGroup]="searchForm" (ngSubmit)="search()"
+      accept-charset="UTF-8">
       <div class="d-flex search-form-fluid flex-column flex-sm-row">
-        <div class="flex-auto position-relative">
+        <div class="flex-auto position-relative w-100">
           <input aria-label="Search GitHub" autocapitalize="off" autocomplete="off" autofocus=""
-            class="form-control input-block" data-hotkey="s" name="q" placeholder="Search GitHub" spellcheck="false"
-            type="text">
-          <input type="hidden" name="ref" value="simplesearch">
+            class="form-control input-block" data-hotkey="s" name="searchQuery" formControlName="query"
+            placeholder="Search GitHub" spellcheck="false" type="text">
         </div>
         <button class="btn ml-sm-2 mt-2 mt-sm-0" type="submit">Search</button>
       </div>

@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { Apollo, } from 'apollo-angular';
 
 import { ApiService } from '../api.service';
+import { Router } from '@angular/router';
+import { FormBuilder, Validators } from '@angular/forms';
+import { SearchResultsComponent } from '../search-results/search-results.component';
 
 @Component({
   selector: 'app-search',
@@ -11,54 +14,21 @@ import { ApiService } from '../api.service';
 })
 export class SearchComponent implements OnInit {
   results: any;
+  searchData: any = {};
+  searchForm: any;
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private router: Router, private formBuilder: FormBuilder) {
+    this.searchForm = this.formBuilder.group({
+      query: ["",],
+
+    });
+  }
 
   ngOnInit(): void {
-    this.search();
+    // this.search();
   }
   search() {
-
-    let searchData = {
-      "first": 10,
-      "query": "Somto",
-      "type": "USER"
-    }
-    const data = gql`
-    query search($after: String,
-        $before: String,
-        $first: Int,
-        $last: Int,
-        $query: String!,
-        $type: SearchType!) { 
-      search(after:$after,
-        before: $before,
-        first :$first
-        last: $last
-        query: $query,
-        type: $type) { 
-          userCount
-           pageInfo{
-            endCursor,
-            hasNextPage,
-            hasPreviousPage,
-            startCursor
-          }
-		      edges{
-		        node{
-            ... on User{
-               name
-			      } 
-	      	}
-       }
-  }
-}
-`;
-    this.api.pullData(data, searchData)
-      .subscribe((result: any) => {
-        this.results = result.data['search'];
-
-      });
+    this.router.navigate(['/search-results/' + this.searchForm.value.query])
   }
 
 }
